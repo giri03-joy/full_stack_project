@@ -1,0 +1,150 @@
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 73px);
+    padding: 2rem 1rem;
+    background-color: var(--bg-main);
+    background: radial-gradient(circle at top right, rgba(47, 128, 237, 0.1), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05), transparent 40%);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 480px;
+    box-shadow: var(--shadow-lg);
+    border: none;
+}
+
+.auth-card-body {
+    padding: 2.5rem 2rem;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-logo {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: var(--bg-hover);
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.auth-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.role-selector {
+    display: flex;
+    background-color: var(--bg-hover);
+    border-radius: var(--radius-lg);
+    padding: 0.375rem;
+    margin-bottom: 2rem;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 0.625rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+}
+
+.role-btn:hover {
+    color: var(--text-main);
+}
+
+.role-btn.active {
+    background-color: var(--bg-white);
+    color: var(--secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.auth-terms {
+    margin-bottom: 1.5rem;
+}
+
+.terms-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.terms-label input {
+    margin-top: 0.25rem;
+}
+
+.terms-label a {
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+.terms-label a:hover {
+    text-decoration: underline;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.auth-link {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-left: 0.25rem;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,84 @@
+.dashboard-container {
+    display: flex;
+    min-height: calc(100vh - 73px);
+    background-color: var(--bg-main);
+    position: relative;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.dashboard-mobile-header {
+    display: none;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-mobile-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 73px;
+        z-index: 30;
+    }
+
+    .dashboard-menu-btn {
+        padding: 0.5rem;
+        color: var(--text-main);
+    }
+
+    .dashboard-mobile-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-main);
+        margin: 0;
+    }
+
+    .dashboard-sidebar-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .dashboard-sidebar-wrapper.open {
+        transform: translateX(0);
+    }
+
+    /* When sidebar wrapper is open, the internal sidebar shouldn't rely on sticky top 73px since it is taking full height, let's reset it */
+    .dashboard-sidebar-wrapper .sidebar {
+        top: 0;
+        height: 100vh;
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 40;
+        backdrop-filter: blur(2px);
+    }
+
+    .dashboard-main {
+        padding: 1rem;
+    }
+}
