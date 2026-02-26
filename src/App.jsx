@@ -12,11 +12,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import UserDashboard from './pages/dashboard/UserDashboard';
 import AdminDashboard from './pages/dashboard/AdminDashboard';
-
-// Simple Auth Context for Simulation
-export const AuthContext = createContext(null);
-
-export const useAuth = () => useContext(AuthContext);
+import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Custom wrapper to conditionally hide the navbar on dashboard routes
 const Layout = ({ children }) => {
@@ -56,14 +52,8 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 };
 
 const App = () => {
-  const [user, setUser] = useState(null);
-
-  // Simplified login function to simulate auth
-  const login = (role) => setUser({ name: 'Demo User', role });
-  const logout = () => setUser(null);
-
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthProvider>
       <Router>
         <Layout>
           <Routes>
@@ -114,7 +104,7 @@ const App = () => {
           </Routes>
         </Layout>
       </Router>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 };
 

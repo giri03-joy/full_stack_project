@@ -18,7 +18,7 @@ import {
     Monitor,
     Shield
 } from 'lucide-react';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import './Sidebar.css';
 
 // Reusable mapping of icons

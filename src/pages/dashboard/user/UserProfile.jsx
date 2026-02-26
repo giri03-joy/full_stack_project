@@ -3,10 +3,10 @@ import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import { User, Mail, Shield, Camera } from 'lucide-react';
+import { useAuth } from '../../../context/AuthContext';
 
 const UserProfile = () => {
-    // Mock user for UI testing
-    const user = { name: 'Rajes', email: 'rajes@example.com', role: 'user' };
+    const { user } = useAuth(); // Actual logged-in user
 
     // Simulate local state for editing profile
     const [profileData, setProfileData] = useState({
@@ -69,7 +69,7 @@ const UserProfile = () => {
                                 name="name"
                                 value={profileData.name}
                                 onChange={handleChange}
-                                icon={<User size={18} />}
+                                icon={User}
                             />
                             <Input
                                 label="Email Address"
@@ -77,7 +77,7 @@ const UserProfile = () => {
                                 name="email"
                                 value={profileData.email}
                                 onChange={handleChange}
-                                icon={<Mail size={18} />}
+                                icon={Mail}
                                 disabled // Simulate un-editable email
                             />
                         </div>

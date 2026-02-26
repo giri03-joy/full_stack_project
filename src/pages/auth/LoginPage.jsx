@@ -4,7 +4,7 @@ import { Mail, Lock, BookOpen } from 'lucide-react';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Card, { CardBody } from '../../components/ui/Card';
-import { useAuth } from '../../App';
+import { useAuth } from '../../context/AuthContext';
 import './Auth.css';
 
 const LoginPage = () => {
@@ -19,7 +19,11 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        login(role); // Trigger context login
+        login({
+            role,
+            email,
+            name: role === 'admin' ? 'Admin User' : 'Student User'
+        }); // Trigger context login
 
         // Redirect based on role
         if (role === 'admin') {

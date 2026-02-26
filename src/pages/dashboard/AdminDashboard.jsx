@@ -11,10 +11,12 @@ import ManageUsers from './admin/ManageUsers';
 import Categories from './admin/Categories';
 import Analytics from './admin/Analytics';
 import Announcements from './admin/Announcements';
+import UserProfile from './user/UserProfile';
 import { useUsers } from '../../context/UserContext';
 import './DashboardPages.css';
 
 const adminMenuItems = [
+    { label: 'Profile', path: '/dashboard/admin/profile', icon: 'User' },
     { label: 'Manage Books', path: '/dashboard/admin/books', icon: 'BookOpen' },
     { label: 'Upload Materials', path: '/dashboard/admin/upload', icon: 'UploadCloud' },
     { label: 'Manage Users', path: '/dashboard/admin/users', icon: 'Users' },
@@ -125,6 +127,7 @@ const AdminDashboard = () => {
         <DashboardLayout menuItems={adminMenuItems} role="admin">
             <Routes>
                 <Route path="/" element={<AdminDashboardOverview />} />
+                <Route path="profile" element={<UserProfile />} />
                 <Route path="books" element={<ManageBooks />} />
                 <Route path="upload" element={<UploadMaterials />} />
                 <Route path="users" element={<ManageUsers />} />
