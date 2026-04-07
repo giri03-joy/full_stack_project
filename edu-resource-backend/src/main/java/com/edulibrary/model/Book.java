@@ -35,4 +35,17 @@ public class Book {
 
     @Column(name = "pdf_url")
     private String pdfUrl;
+
+    @ManyToMany(mappedBy = "savedBooks")
+    @com.fasterxml.jackson.annotation.JsonIgnore
+    @lombok.ToString.Exclude
+    @lombok.EqualsAndHashCode.Exclude
+    private java.util.Set<User> savedByUsers = new java.util.HashSet<>();
+
+    @PreRemove
+    private void removeBookFromUsers() {
+        for (User user : savedByUsers) {
+            user.getSavedBooks().remove(this);
+        }
+    }
 }

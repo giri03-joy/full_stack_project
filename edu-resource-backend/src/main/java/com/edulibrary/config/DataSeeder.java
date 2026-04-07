@@ -27,8 +27,8 @@ public class DataSeeder {
 
             // Seed Books
             if (bookRepository.count() == 0) {
-                bookRepository.save(new Book(null, "NIST Cybersecurity Framework", "NIST", "Computer Science", 4.9, "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=800", "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf"));
-                bookRepository.save(new Book(null, "NIST SP 800-53 Rev 5", "NIST", "Computer Science", 4.8, "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=600&h=800", "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf"));
+                bookRepository.save(new Book(null, "NIST Cybersecurity Framework", "NIST", "Computer Science", 4.9, "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&h=800", "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.04162018.pdf", new java.util.HashSet<>()));
+                bookRepository.save(new Book(null, "NIST SP 800-53 Rev 5", "NIST", "Computer Science", 4.8, "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=600&h=800", "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf", new java.util.HashSet<>()));
             }
 
             // Seed Courses
