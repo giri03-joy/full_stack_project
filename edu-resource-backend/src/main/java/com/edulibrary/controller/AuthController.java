@@ -1,7 +1,13 @@
 package com.edulibrary.controller;
 
 import com.edulibrary.model.User;
+import com.edulibrary.model.Book;
+import com.edulibrary.model.Course;
+import com.edulibrary.model.UserCourse;
 import com.edulibrary.repository.UserRepository;
+import com.edulibrary.repository.BookRepository;
+import com.edulibrary.repository.CourseRepository;
+import com.edulibrary.repository.UserCourseRepository;
 import com.edulibrary.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
 
@@ -18,6 +25,15 @@ public class AuthController {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private BookRepository bookRepository;
+
+    @Autowired
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private UserCourseRepository userCourseRepository;
     
     @Autowired
     private JwtUtil jwtUtil;
@@ -49,6 +65,19 @@ public class AuthController {
             user.setRole("user");
         }
         User savedUser = userRepository.save(user);
+
+        // Auto-save all library PDF books
+        HashSet<Book> allBooks = new HashSet<>();
+        bookRepository.findAll().forEach(allBooks::add);
+        savedUser.setSavedBooks(allBooks);
+        savedUser = userRepository.save(savedUser);
+
+        // Auto-enroll in all Cyber Security courses
+        for (Course course : courseRepository.findAll()) {
+            UserCourse uc = new UserCourse(null, savedUser, course, 0);
+            userCourseRepository.save(uc);
+        }
+
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 }

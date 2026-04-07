@@ -32,4 +32,7 @@ public class Book {
     private Double rating;
 
     private String image;
+
+    @Column(name = "pdf_url")
+    private String pdfUrl;
 }
