@@ -32,4 +32,9 @@ public class Course {
     private Integer lessons;
 
     private String tag;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "course_videos", joinColumns = @JoinColumn(name = "course_id"))
+    @Column(name = "video_url")
+    private java.util.List<String> videoUrls;
 }

@@ -42,7 +42,7 @@ public class User {
 
     private String status = "Active"; // 'Active', 'Pending', 'Inactive'
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_saved_books",
         joinColumns = @JoinColumn(name = "user_id"),

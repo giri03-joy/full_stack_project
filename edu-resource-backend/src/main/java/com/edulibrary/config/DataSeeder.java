@@ -10,6 +10,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -35,9 +37,17 @@ public class DataSeeder {
 
             // Seed Courses
             if (courseRepository.count() == 0) {
-                courseRepository.save(new Course(null, "Full Stack Web Development", "Tech Academy", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400", "48h 30m", 124, "Bestseller"));
-                courseRepository.save(new Course(null, "Machine Learning A-Z", "Dr. Data", "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=600&h=400", "60h 15m", 156, "New"));
-                courseRepository.save(new Course(null, "Advanced React patterns", "UI Masters", "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=600&h=400", "12h 45m", 42, null));
+                courseRepository.save(new Course(null, "Full Stack Web Development", "Tech Academy", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400", "48h 30m", 124, "Bestseller", new ArrayList<>()));
+                courseRepository.save(new Course(null, "Machine Learning A-Z", "Dr. Data", "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=600&h=400", "60h 15m", 156, "New", new ArrayList<>()));
+                courseRepository.save(new Course(null, "Advanced React patterns", "UI Masters", "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=600&h=400", "12h 45m", 42, null, new ArrayList<>()));
+                
+                // Hacking Course with YouTube Videos embedded
+                courseRepository.save(new Course(null, "Ethical Hacking Masterclass", "Cyber Ninjas", "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600&h=400", "25h", 80, "Hot", 
+                    Arrays.asList(
+                        "https://www.youtube.com/embed/fNzpcB7ODxQ", 
+                        "https://www.youtube.com/embed/3Kq1MIfTWCE", 
+                        "https://www.youtube.com/embed/dz7Ntp7KQGA"
+                    )));
             }
         };
     }
