@@ -1,4 +1,6 @@
+# ======================
 # Logs
+# ======================
 logs
 *.log
 npm-debug.log*
@@ -7,15 +9,31 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# ======================
+# Node / Frontend
+# ======================
+node_modules/
+dist/
+dist-ssr/
 *.local
 
-# Editor directories and files
-.vscode/*
+# ======================
+# Java / Backend
+# ======================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ======================
+# IDE / OS Files
+# ======================
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
+*.iws
+*.iml
+*.ipr
 .DS_Store
 *.suo
 *.ntvs*
