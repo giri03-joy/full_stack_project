@@ -31,7 +31,71 @@ public class Book {
 
     private Double rating;
 
-    private String image;
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getPdfUrl() {
+		return pdfUrl;
+	}
+
+	public void setPdfUrl(String pdfUrl) {
+		this.pdfUrl = pdfUrl;
+	}
+
+	public java.util.Set<User> getSavedByUsers() {
+		return savedByUsers;
+	}
+
+	public void setSavedByUsers(java.util.Set<User> savedByUsers) {
+		this.savedByUsers = savedByUsers;
+	}
+
+	private String image;
 
     @Column(name = "pdf_url")
     private String pdfUrl;

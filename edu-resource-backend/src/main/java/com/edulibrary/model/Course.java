@@ -27,7 +27,72 @@ public class Course {
 
     private String thumbnail;
 
-    private String duration;
+    
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(String instructor) {
+		this.instructor = instructor;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public Integer getLessons() {
+		return lessons;
+	}
+
+	public void setLessons(Integer lessons) {
+		this.lessons = lessons;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+	public java.util.List<String> getVideoUrls() {
+		return videoUrls;
+	}
+
+	public void setVideoUrls(java.util.List<String> videoUrls) {
+		this.videoUrls = videoUrls;
+	}
+
+	private String duration;
 
     private Integer lessons;
 
