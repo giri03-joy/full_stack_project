@@ -55,6 +55,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         return userRepository.findById(id).map(user -> {
+            List<UserCourse> courses = userCourseRepository.findByUserId(id);
+            if(courses != null && !courses.isEmpty()) {
+                userCourseRepository.deleteAll(courses);
+            }
             userRepository.delete(user);
             return ResponseEntity.ok().build();
         }).orElse(ResponseEntity.notFound().build());
